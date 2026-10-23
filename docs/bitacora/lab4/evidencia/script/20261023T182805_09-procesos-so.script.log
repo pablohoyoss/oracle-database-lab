@@ -1,0 +1,14 @@
+== 1. Procesos de background clave ==
+1000     108        db_reco_FREE 
+1002     122        db_lreg_FREE 
+1014     267        db_mmon_FREE 
+1018     102        db_mmnl_FREE 
+940      84         db_pmon_FREE 
+990      104        db_dbw0_FREE 
+992      103        db_lgwr_FREE 
+994      103        db_ckpt_FREE 
+996      101        db_smon_FREE 
+== 2. Recuento por tipo ==
+ background (db_*_FREE / ora_*_FREE): 60
+ servidor dedicado (oracleFREE):       0
+ listener (tnslsnr):                   1

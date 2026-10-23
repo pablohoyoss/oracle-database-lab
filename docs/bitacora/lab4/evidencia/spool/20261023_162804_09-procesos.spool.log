@@ -1,0 +1,50 @@
+SQL Format Cleared
+== 1. Cuántos procesos tiene la instancia y de qué tipo ==
+
+TIPO        PROCESOS_ORACLE PROCESOS_LINUX
+----------- --------------- --------------
+background               86             53
+servidor                  7              7
+== 2. Los procesos obligatorios y clave (v$bgprocess + v$process) ==
+
+PNAME  SPID     DESCRIPTION                                     
+------ -------- ------------------------------------------------
+PMON   940      process cleanup                                 
+LREG   1002     Listener Registration                           
+SMON   996      System Monitor Process                          
+DBW0   990      db writer process 0                             
+LGWR   992      Redo etc.                                       
+CKPT   994      checkpoint                                      
+MMON   1014     Manageability Monitor Process                   
+MMNL   1018     Manageability Monitor Process 2                 
+RECO   1000     distributed recovery                            
+ARC0   1093     Archival Process 0                              
+CLMN   944      process cleanup                                 
+DIA0   987      diagnosibility process 0                        
+DIAG   970      diagnosibility process                          
+MMAN   962      Memory Manager                                  
+PMAN   985      process manager                                 
+PSP0   948      process spawner 0                               
+VKTM   952      Virtual Keeper of TiMe process                  
+== 3. ¿Hay archivador (ARCn)? ==
+
+PROCESOS_ARCN
+-------------
+            4
+== 4. Mi sesión y el proceso servidor que la atiende ==
+
+       SID    SERIAL# USERNAME     MACHINE        PROGRAM                            SPID    
+---------- ---------- ------------ -------------- ---------------------------------- --------
+       215      18220 C##OPS_RO    LAPTOP-GL40ANO SQLcl                              1934    
+                                   F                                                         
+
+== 5. Todas las sesiones de usuario ahora mismo ==
+
+       SID USERNAME     STATUS   MACHINE        PROGRAM                            SPID    
+---------- ------------ -------- -------------- ---------------------------------- --------
+        64              ACTIVE   bb8fccc8399e   oracle@bb8fccc8399e (J001)         1424    
+       182              ACTIVE   bb8fccc8399e   oracle@bb8fccc8399e (J002)         1739    
+       215 C##OPS_RO    ACTIVE   LAPTOP-GL40ANO SQLcl                              1934    
+                                 F                                                         
+
+       220              ACTIVE   bb8fccc8399e   oracle@bb8fccc8399e (J000)         1422    

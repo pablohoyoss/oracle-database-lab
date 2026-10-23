@@ -1,0 +1,8 @@
+== Configurando db_create_file_dest ==
+
+System altered.
+
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+db_create_file_dest		     string	 /opt/oracle/oradata

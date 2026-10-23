@@ -1,0 +1,3 @@
+== A. Vista SQL (SYSDBA por autenticación del sistema operativo) ==
+SP2-0310: unable to open file "scripts/lab4/01-diagnostico-inicial.sql"
+Help: https://docs.oracle.com/error-help/db/sp2-0310/

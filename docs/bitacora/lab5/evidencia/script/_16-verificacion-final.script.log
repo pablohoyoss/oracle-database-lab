@@ -1,0 +1,46 @@
+== Parte A · Respaldo del Lab 4 ==
+ [OK] backup backups/20261025T110517Z_lab4-final íntegro
+== Partes B a H · Banco TiendaSur e índices ==
+ [FALLO] TiendaSur: clientes/pedidos: hay '100000/200000', se esperaba '100000/1000000' -> repasa Parte B (V004)
+ [OK] banco de medida LAB_TOOLS.MEDIR (VALID)
+ [FALLO] índices de PEDIDO tras V005: hay 'IX_PED_CLIENTE,IX_PED_ESTADO_FECHA,IX_PED_FECHA,IX_PED_IMPORTE,SYS_C009088', se esperaba 'IX_PED_CLI_FEC_CUB,IX_PED_CP,IX_PED_FECHA,IX_PED_PENDIENTES,PK_PEDIDO' -> repasa Parte G (V005)
+ [FALLO] DNI único garantizado por la base: hay '0', se esperaba '1' -> repasa Parte G (V005)
+ [OK] índices invisibles olvidados (0)
+ [OK] esquema de pruebas LAB5_PRUEBAS borrado (0)
+== Partes I a L · SCN, control files, redo y ARCHIVELOG ==
+ [OK] copias del control file (3)
+ [OK] grupos de redo con un solo miembro (0)
+ [OK] modo de la base (ARCHIVELOG)
+ [OK] FRA configurada (definida)
+ [OK] tamaño de la FRA en el SPFILE (no el 2M del escenario) (4294967296)
+ [OK] hay redo archivado (si)
+== Partes M a P · Undo, simulacros y salud ==
+ [OK] fila 101 de vuelta a ACTIVO (ACTIVO)
+ [OK] fila 102 de vuelta a ACTIVO (ACTIVO)
+ [OK] matrículas restauradas (60000)
+ [OK] fila 104 de vuelta a ACTIVO (ACTIVO)
+ [FALLO] hay copias RMAN completadas: hay 'no', se esperaba 'si' -> repasa Parte O (simulacro D)
+ [OK] PDB de usuario (solo FREEPDB1) (1)
+ [OK] C##OPS_RO lee el alert log (1)
+ [OK] CDB abierta (READWRITE)
+== Evidencias ==
+ [OK] evidencia 00
+ [FALLO] falta la evidencia 01 -> repasa la parte correspondiente
+ [OK] evidencia 02
+ [FALLO] falta la evidencia 03 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 04 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 05 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 06 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 07 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 08 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 09 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 10 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 11 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 12 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 13 -> repasa la parte correspondiente
+ [FALLO] falta la evidencia 14 -> repasa la parte correspondiente
+ [OK] evidencia 15
+ [OK] config/.env fuera de Git
+ [OK] backups/ fuera de Git
+
+RESULTADO: 17 FALLO(S). Corrige antes de abrir el PR.

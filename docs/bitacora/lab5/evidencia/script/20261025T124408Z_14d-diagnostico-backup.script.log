@@ -1,0 +1,66 @@
+
+Recovery Manager: Release 23.26.3.0.0 - Production on Sun Oct 25 12:44:08 2026
+Version 23.26.3.0.0
+
+Copyright (c) 1982, 2026, Oracle and/or its affiliates.  All rights reserved.
+
+connected to target database: FREE (DBID=1509902213)
+
+RMAN> SHOW ALL;
+using target database control file instead of recovery catalog
+RMAN configuration parameters for database with db_unique_name FREE are:
+CONFIGURE RETENTION POLICY TO REDUNDANCY 1; # default
+CONFIGURE BACKUP OPTIMIZATION OFF; # default
+CONFIGURE DEFAULT DEVICE TYPE TO DISK; # default
+CONFIGURE CONTROLFILE AUTOBACKUP ON; # default
+CONFIGURE CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE DISK TO '%F'; # default
+CONFIGURE DEVICE TYPE DISK PARALLELISM 1 BACKUP TYPE TO BACKUPSET; # default
+CONFIGURE DATAFILE BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE ARCHIVELOG BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE MAXSETSIZE TO UNLIMITED; # default
+CONFIGURE ENCRYPTION FOR DATABASE OFF; # default
+CONFIGURE ENCRYPTION ALGORITHM 'AES256'; # default
+CONFIGURE COMPRESSION ALGORITHM 'BASIC' AS OF RELEASE 'DEFAULT' OPTIMIZE FOR LOAD TRUE ; # default
+CONFIGURE RMAN OUTPUT TO KEEP FOR 7 DAYS; # default
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE; # default
+CONFIGURE SNAPSHOT CONTROLFILE NAME TO '/opt/oracle/product/26ai/dbhomeFree/dbs/snapcf_FREE.f'; # default
+
+
+RMAN> BACKUP TABLESPACE FREEPDB1:TBS_ACADEMIA TAG 'lab5_simulacro_d';
+Starting backup at 25-OCT-26
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=22 device type=DISK
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00016 name=/opt/oracle/oradata/FREE/FREEPDB1/academia01.dbf
+channel ORA_DISK_1: starting piece 1 at 25-OCT-26
+channel ORA_DISK_1: finished piece 1 at 25-OCT-26
+piece handle=/opt/oracle/oradata/fra/FREE/55E54F210F100828E0630B00580ADFD0/backupset/2026_10_25/o1_mf_nnndf_LAB5_SIMULACRO_D_ofvydt40_.bkp tag=LAB5_SIMULACRO_D comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+Finished backup at 25-OCT-26
+
+Starting Control File and SPFILE Autobackup at 25-OCT-26
+piece handle=/opt/oracle/oradata/fra/FREE/autobackup/2026_10_25/o1_mf_s_1247575451_ofvydvcz_.bkp comment=NONE
+Finished Control File and SPFILE Autobackup at 25-OCT-26
+
+
+RMAN> LIST BACKUP OF TABLESPACE FREEPDB1:TBS_ACADEMIA;
+
+List of Backup Sets
+===================
+
+
+BS Key  Type LV Size       Device Type Elapsed Time Completion Time
+------- ---- -- ---------- ----------- ------------ ---------------
+8       Full    21.23M     DISK        00:00:00     25-OCT-26      
+        BP Key: 8   Status: AVAILABLE  Compressed: NO  Tag: LAB5_SIMULACRO_D
+        Piece Name: /opt/oracle/oradata/fra/FREE/55E54F210F100828E0630B00580ADFD0/backupset/2026_10_25/o1_mf_nnndf_LAB5_SIMULACRO_D_ofvydt40_.bkp
+  List of Datafiles in backup set 8
+  File LV Type Ckp SCN    Ckp Time  Abs Fuz SCN Sparse Name
+  ---- -- ---- ---------- --------- ----------- ------ ----
+  16      Full 6238513    25-OCT-26              NO    /opt/oracle/oradata/FREE/FREEPDB1/academia01.dbf
+
+
+RMAN> EXIT;
+
+Recovery Manager complete.

@@ -23,3 +23,4 @@
 
 - **Lección clave:** La arquitectura multiplexada (Control Files + Redo Log) junto al modo `ARCHIVELOG` permite garantizar RPO = 0 ante fallos físicos de almacenamiento.
 - **Mejora identificada:** El RTO del simulacro C (tabla borrada) puede optimizarse manteniendo la papelera de reciclaje (`RECYCLEBIN`) activa antes de recurrir a restauración por RMAN.
+# Cierre de Lab 5

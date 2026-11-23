@@ -1,0 +1,63 @@
+== EVIDENCIA alumno=E035 hora=2026-11-23T17:14:33Z origen=07-memoria
+== EVIDENCIA contenedor=bb8fccc8399e dbid=1509902213 arranque=2026-11-23T16:51:12 scn=10312923
+SQL Format Cleared
+== 1. La SGA por componentes (V$SGAINFO) ==
+
+NAME                                       MB RES
+---------------------------------- ---------- ---
+Maximum SGA Size                         1529 No 
+Buffer Cache Size                        1072 Yes
+Shared Pool Size                          416 Yes
+Startup overhead in Shared Pool           223 No 
+Shared IO Pool Size                        80 Yes
+Free SGA Memory Available                  16    
+Large Pool Size                            16 Yes
+Granule Size                               16 No 
+Fixed SGA Size                              5 No 
+Redo Buffers                                4 No 
+Data Transfer Cache Size                    0 Yes
+Java Pool Size                              0 Yes
+Vector Memory Area Size                     0 No 
+In-Memory Area Size                         0 No 
+Streams Pool Size                           0 Yes
+== 2. Componentes dinámicos: entre qué tamaños se han movido desde el arranque (ASMM) ==
+
+COMPONENT               ACTUAL_MB     MIN_MB     MAX_MB  FIJADO_MB LAST_OPER_TYP
+---------------------- ---------- ---------- ---------- ---------- -------------
+DEFAULT buffer cache          992        992        992          0 INITIALIZING 
+shared pool                   416        416        416          0 STATIC       
+Shared IO Pool                 80         80         80         80 STATIC       
+large pool                     16         16         16          0 STATIC       
+
+MOVIMIENTOS_GROW_SHRINK
+-----------------------
+                      0
+== 3. La PGA de la instancia (V$PGASTAT) ==
+== 4. Qué procesos consumen más PGA ahora ==
+
+PNAME  SPID                         PGA_MB
+------ ------------------------ ----------
+M007   2589                           26.2
+M000   2272                           12.9
+ARC0   2333                           12.5
+ARC1   2335                           12.4
+ARC2   2337                           12.4
+== 5. Antes de cambiar la memoria, pregunta a los advisors (factor 1 = tamaño actual) ==
+
+    SGA_MB     FACTOR ESTD_DB_TIME_FACTOR ESTD_PHYSICAL_READS
+---------- ---------- ------------------- -------------------
+       768         .5                   1               22802
+      1152        .75                   1               22547
+      1536          1                   1               22547
+      1920       1.25                   1               22547
+      2304        1.5                   1               22547
+      2688       1.75                   1               22547
+      3072          2                   1               22547
+
+    PGA_MB     FACTOR    HIT_PCT  OVERALLOC
+---------- ---------- ---------- ----------
+       128        .25         96          4
+       256         .5         96          4
+       384        .75        100          0
+       512          1        100          0
+      1024          2        100          0

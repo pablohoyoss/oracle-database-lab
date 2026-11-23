@@ -1,0 +1,58 @@
+== EVIDENCIA alumno=E035 hora=2026-11-23T17:36:12Z origen=04-deltas
+== EVIDENCIA contenedor=bb8fccc8399e dbid=1509902213 arranque=2026-11-23T16:51:12 scn=10320136
+== 1. Tasas ya calculadas por MMON para ESTA PDB (V$CON_SYSMETRIC, último minuto) ==
+(V$SYSMETRIC son las de la instancia: dentro de una PDB sale vacía)
+
+[1mMETRIC_NAME[m                    [1mVALOR[m [1mMETRIC_UNIT[m                
+___________________________ ________ __________________________ 
+Average Active Sessions            0 Active Sessions            
+CPU Usage Per Sec                  0 CentiSeconds Per Second    
+Database Time Per Sec              0 CentiSeconds Per Second    
+Executions Per Sec                 0 Executes Per Second        
+User Transaction Per Sec           0 Transactions Per Second    
+== 2. Acumulados desde el arranque: sin el "desde cuándo" no significan nada ==
+
+[1mARRANQUE[m               [1mMINUTOS_ARRIBA[m 
+___________________ _________________ 
+2026-11-23 16:51                   45 
+
+[1mSTAT_NAME[m       [1mSEGUNDOS[m 
+____________ ___________ 
+DB time            315.5 
+DB CPU              16.1 
+
+
+
+== 3. La carga conocida: 10 recorridos completos de PEDIDO (un millón de filas cada uno) ==
+    SELECT /*+ FULL(p) */ COUNT(*) INTO n FROM tiendasur.pedido p WHERE importe > 100;
+                                                         *
+ERROR at line 4:
+ORA-06550: line 4, column 58:
+PL/SQL: ORA-00942: table or view "TIENDASUR"."PEDIDO" does not exist
+ORA-06550: line 4, column 5:
+PL/SQL: SQL Statement ignored
+Help: https://docs.oracle.com/error-help/db/ora-06550/
+
+
+
+
+== 4. El delta: lo que costó la carga ==
+
+[1mMAGNITUD[m                               [1mDELTA[m 
+___________________________________ ________ 
+Tiempo de reloj (s)                     0.13 
+DB time (s)                             0.05 
+DB CPU (s)                              0.03 
+Lecturas lógicas                          72 
+Ejecuciones (incluye recursivas)          18 
+Lecturas lógicas por recorrido             7 
+== 5. En qué ESPERA esta PDB desde el arranque (clases que no son Idle, acumulado) ==
+
+[1mWAIT_CLASS[m          [1mSEGUNDOS[m    [1mESPERAS[m 
+________________ ___________ __________ 
+Application            277.8         61 
+Configuration           14.1         21 
+Other                    3.5       8831 
+User I/O                 1.4       8252 
+Concurrency              0.4        326 
+Commit                   0.4         95 

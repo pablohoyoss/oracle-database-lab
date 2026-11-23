@@ -1,6 +1,6 @@
 He leído la política de uso de IA de la asignatura.
 
-# Declaración de uso de IA · Lab 6 · 
+# Declaración de uso de IA · Lab 6 · E035 
 
 <!--
 CÓMO SE RELLENA (léelo y borra este comentario si quieres; el script de evaluación lo ignora)
